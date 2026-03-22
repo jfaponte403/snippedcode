@@ -11,13 +11,13 @@ import './App.css';
 function App() {
   const [code, setCode] = useState('');
   const detectedLanguage = useLanguageDetection(code, 500);
-  const { theme, toggleTheme } = useTheme();
+  const { theme, changeTheme } = useTheme();
 
   return (
     <div className="app-container">
       <header className="app-header">
         <h1>SnippedCode</h1>
-        <ThemeToggle theme={theme} onToggle={toggleTheme} />
+        <ThemeToggle theme={theme} onChangeTheme={changeTheme} />
       </header>
 
       <main className="app-main">

@@ -1,4 +1,4 @@
-:root {
+:root, .theme-light {
   /* LIGHT THEME VARIABLES */
   --bg-color: #F5F5F5;
   --surface-color: #FFFFFF;
@@ -10,7 +10,7 @@
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-body.dark-theme {
+.theme-dark {
   /* DARK THEME VARIABLES */
   --bg-color: #1A1A1A;
   --surface-color: #242424;
@@ -19,6 +19,17 @@ body.dark-theme {
   --text-secondary: #9A9A9A;
   --interactive-hover: #4A4A4A;
   --accent-color: #BFBFBF;
+}
+
+.theme-dracula {
+  /* DRACULA THEME VARIABLES */
+  --bg-color: #282a36;
+  --surface-color: #44475a;
+  --border-color: #6272a4;
+  --text-primary: #f8f8f2;
+  --text-secondary: #bd93f9;
+  --interactive-hover: #8be9fd;
+  --accent-color: #ff79c6;
 }
 
 * {

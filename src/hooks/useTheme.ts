@@ -1,26 +1,24 @@
 import { useState, useEffect } from 'react';
 
+export const AVAILABLE_THEMES = ['light', 'dark', 'dracula'];
+
 export function useTheme() {
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+  const [theme, setTheme] = useState<string>(() => {
     const saved = localStorage.getItem('theme');
-    if (saved === 'light' || saved === 'dark') return saved;
+    if (saved && AVAILABLE_THEMES.includes(saved)) return saved;
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   });
 
   useEffect(() => {
     localStorage.setItem('theme', theme);
-    if (theme === 'dark') {
-      document.body.classList.add('dark-theme');
-      document.body.classList.remove('light-theme');
-    } else {
-      document.body.classList.add('light-theme');
-      document.body.classList.remove('dark-theme');
-    }
+    document.body.className = `theme-${theme}`;
   }, [theme]);
 
-  const toggleTheme = () => {
-    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  const changeTheme = (newTheme: string) => {
+    if (AVAILABLE_THEMES.includes(newTheme)) {
+      setTheme(newTheme);
+    }
   };
 
-  return { theme, toggleTheme };
+  return { theme, changeTheme };
 }

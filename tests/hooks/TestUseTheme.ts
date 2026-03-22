@@ -22,18 +22,18 @@ describe('useTheme hook', () => {
     const { result } = renderHook(() => useTheme());
 
     expect(result.current.theme).toBe('light');
-    expect(document.body.classList.contains('light-theme')).toBe(true);
+    expect(document.body.className).toBe('theme-light');
   });
 
-  it('toggles theme properly', () => {
+  it('changes theme properly', () => {
     const { result } = renderHook(() => useTheme());
 
     act(() => {
-      result.current.toggleTheme();
+      result.current.changeTheme('dracula');
     });
 
-    expect(result.current.theme).toBe('dark');
-    expect(localStorage.getItem('theme')).toBe('dark');
-    expect(document.body.classList.contains('dark-theme')).toBe(true);
+    expect(result.current.theme).toBe('dracula');
+    expect(localStorage.getItem('theme')).toBe('dracula');
+    expect(document.body.className).toBe('theme-dracula');
   });
 });

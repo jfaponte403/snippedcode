@@ -3,20 +3,23 @@ import { describe, it, expect, vi } from 'vitest';
 import { ThemeToggle } from '../../src/components/ThemeToggle/ThemeToggle';
 
 describe('ThemeToggle', () => {
-  it('displays correct text for light theme', () => {
-    render(<ThemeToggle theme="light" onToggle={() => {}} />);
-    expect(screen.getByText('🌙 Dark Mode')).toBeInTheDocument();
+  it('renders all available theme options', () => {
+    render(<ThemeToggle theme="light" onChangeTheme={() => {}} />);
+    const select = screen.getByRole('combobox');
+    expect(select.children.length).toBeGreaterThan(0);
+    // Should have light, dark, dracula
+    expect(screen.getByText('Light')).toBeInTheDocument();
+    expect(screen.getByText('Dark')).toBeInTheDocument();
+    expect(screen.getByText('Dracula')).toBeInTheDocument();
   });
 
-  it('displays correct text for dark theme', () => {
-    render(<ThemeToggle theme="dark" onToggle={() => {}} />);
-    expect(screen.getByText('☀️ Light Mode')).toBeInTheDocument();
-  });
-
-  it('calls onToggle when clicked', () => {
-    const handleToggle = vi.fn();
-    render(<ThemeToggle theme="light" onToggle={handleToggle} />);
-    fireEvent.click(screen.getByRole('button'));
-    expect(handleToggle).toHaveBeenCalled();
+  it('calls onChangeTheme when a new option is selected', () => {
+    const handleChange = vi.fn();
+    render(<ThemeToggle theme="light" onChangeTheme={handleChange} />);
+    
+    const select = screen.getByRole('combobox');
+    fireEvent.change(select, { target: { value: 'dracula' } });
+    
+    expect(handleChange).toHaveBeenCalledWith('dracula');
   });
 });

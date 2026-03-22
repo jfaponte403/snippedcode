@@ -2,13 +2,20 @@ import { useMemo } from 'react';
 import hljs from 'highlight.js';
 import githubLightUrl from 'highlight.js/styles/github.css?url';
 import githubDarkUrl from 'highlight.js/styles/github-dark.css?url';
+import draculaUrl from 'highlight.js/styles/base16/dracula.css?url';
 import './CodePreview.css';
 
 interface CodePreviewProps {
   code: string;
-  theme: 'light' | 'dark';
+  theme: string;
   language: string;
 }
+
+const HLJS_THEMES: Record<string, string> = {
+  light: githubLightUrl,
+  dark: githubDarkUrl,
+  dracula: draculaUrl,
+};
 
 export function CodePreview({ code, theme, language }: CodePreviewProps) {
   const highlightedCode = useMemo(() => {
@@ -23,9 +30,11 @@ export function CodePreview({ code, theme, language }: CodePreviewProps) {
     }
   }, [code, language]);
 
+  const cssUrl = HLJS_THEMES[theme] || githubLightUrl;
+
   return (
     <div className={`preview-container ${theme}`} id="code-preview-capture">
-      <link rel="stylesheet" href={theme === 'dark' ? githubDarkUrl : githubLightUrl} />
+      <link rel="stylesheet" href={cssUrl} />
       <div className="mac-buttons">
         <span className="mac-btn close"></span>
         <span className="mac-btn minimize"></span>

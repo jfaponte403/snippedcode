@@ -1,18 +1,27 @@
+import { AVAILABLE_THEMES } from '../../hooks/useTheme';
 import './ThemeToggle.css';
 
 interface ThemeToggleProps {
-  theme: 'light' | 'dark';
-  onToggle: () => void;
+  theme: string;
+  onChangeTheme: (theme: string) => void;
 }
 
-export function ThemeToggle({ theme, onToggle }: ThemeToggleProps) {
+export function ThemeToggle({ theme, onChangeTheme }: ThemeToggleProps) {
   return (
-    <button 
-      className="theme-toggle" 
-      onClick={onToggle}
-      aria-label="Toggle theme"
-    >
-      {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
-    </button>
+    <div className="theme-toggle-wrapper">
+      <span role="img" aria-label="palette">🎨 Theme:</span>
+      <select 
+        className="theme-select" 
+        value={theme}
+        onChange={(e) => onChangeTheme(e.target.value)}
+        aria-label="Select theme"
+      >
+        {AVAILABLE_THEMES.map(t => (
+          <option key={t} value={t}>
+            {t.charAt(0).toUpperCase() + t.slice(1)}
+          </option>
+        ))}
+      </select>
+    </div>
   );
 }
