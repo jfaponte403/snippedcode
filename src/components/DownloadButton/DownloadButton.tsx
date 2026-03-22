@@ -15,7 +15,7 @@ export function DownloadButton({ elementId }: DownloadButtonProps) {
       className="download-button" 
       onClick={handleDownload}
     >
-      Download
+      Download Image
     </button>
   );
 }

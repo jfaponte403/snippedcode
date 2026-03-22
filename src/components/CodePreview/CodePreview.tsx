@@ -33,12 +33,20 @@ export function CodePreview({ code, theme, language }: CodePreviewProps) {
   return (
     <div className={`preview-container ${theme}`} id="code-preview-capture">
       <link rel="stylesheet" href={cssUrl} />
-      <pre>
-        <code 
-          className={`hljs language-${language}`}
-          dangerouslySetInnerHTML={{ __html: highlightedCode }}
-        />
-      </pre>
+      {!code.trim() ? (
+        <div className="empty-state">
+          <div className="empty-state-icon">✨</div>
+          <h3>Awaiting your code</h3>
+          <p>Beautiful snippets begin with your code. Paste or type it in the editor to see the magic happen.</p>
+        </div>
+      ) : (
+        <pre>
+          <code 
+            className={`hljs language-${language}`}
+            dangerouslySetInnerHTML={{ __html: highlightedCode }}
+          />
+        </pre>
+      )}
     </div>
   );
 }

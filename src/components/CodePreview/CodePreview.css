@@ -3,6 +3,8 @@
   background-color: var(--surface-color);
   min-height: 100%;
   transition: background-color 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
 .preview-container pre {
@@ -15,4 +17,36 @@
   font-size: var(--fs-base);
   line-height: var(--lh-relaxed);
   background: transparent !important;
+}
+
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius-md);
+  margin: 1rem;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.empty-state h3 {
+  font-size: var(--fs-lg);
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  font-size: var(--fs-sm);
+  max-width: 300px;
+  line-height: var(--lh-relaxed);
 }

@@ -8,8 +8,18 @@ import { useLanguageDetection } from './hooks/useLanguageDetection';
 import { useTheme } from './hooks/useTheme';
 import './App.css';
 
+const INITIAL_CODE = `// Welcome to SnippedCode!
+// 1. Paste your code here
+// 2. Select a theme below
+// 3. Click Download to share your snippet
+
+function createSnippet(code, theme) {
+  const element = document.getElementById('code-preview-capture');
+  return captureImage(element, { theme });
+}`;
+
 function App() {
-  const [code, setCode] = useState('');
+  const [code, setCode] = useState(INITIAL_CODE);
   const detectedLanguage = useLanguageDetection(code, 200);
   const { theme, changeTheme } = useTheme();
 
