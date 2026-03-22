@@ -45,10 +45,10 @@ Los desarrolladores frecuentemente necesitan compartir fragmentos de código en 
 - Interfaz para pegar o escribir fragmentos de código.
 - Detección automática del lenguaje de programación.
 - Previsualización en tiempo real de la captura generada.
-- Soporte para tema claro y tema oscuro.
+- Soporte para múltiples temas de syntax highlighting (Claro, Oscuro, Monokai, etc.).
 - Botón de descarga de la captura de pantalla en formato de imagen.
 - Diseño responsivo (mobile, tablet, desktop).
-- UI/UX minimalista con paleta de colores grises.
+- UI/UX minimalista con paleta de colores grises para la interfaz.
 
 ### 5.2 Fuera del Alcance (Out of Scope)
 
@@ -80,7 +80,8 @@ Los desarrolladores frecuentemente necesitan compartir fragmentos de código en 
 
 ### RF-04 · Cambio de Tema
 
-- La aplicación debe ofrecer un selector para alternar entre tema claro y tema oscuro.
+- La aplicación debe ofrecer un selector para alternar entre diferentes temas de syntax highlighting.
+- Al menos se debe soportar: Light, Dark y Monokai.
 - El cambio de tema debe aplicarse tanto al editor como a la previsualización.
 
 ### RF-05 · Descarga de Captura

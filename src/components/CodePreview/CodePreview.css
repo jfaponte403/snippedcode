@@ -28,8 +28,6 @@
   text-align: center;
   padding: 2rem;
   color: var(--text-secondary);
-  border: 2px dashed var(--border-color);
-  border-radius: var(--radius-md);
   margin: 1rem;
 }
 
