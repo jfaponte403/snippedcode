@@ -1,0 +1,10 @@
+.language-badge {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.language-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: capitalize;
+}
