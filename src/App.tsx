@@ -10,14 +10,13 @@ import './App.css';
 
 function App() {
   const [code, setCode] = useState('');
-  const detectedLanguage = useLanguageDetection(code, 500);
+  const detectedLanguage = useLanguageDetection(code, 200);
   const { theme, changeTheme } = useTheme();
 
   return (
     <div className="app-container">
       <header className="app-header">
         <h1>SnippedCode</h1>
-        <ThemeToggle theme={theme} onChangeTheme={changeTheme} />
       </header>
 
       <main className="app-main">
@@ -31,7 +30,10 @@ function App() {
       </main>
 
       <footer className="app-footer">
-        <LanguageBadge language={detectedLanguage} />
+        <div className="footer-left">
+          <LanguageBadge language={detectedLanguage} />
+          <ThemeToggle theme={theme} onChangeTheme={changeTheme} />
+        </div>
         <DownloadButton elementId="code-preview-capture" />
       </footer>
     </div>

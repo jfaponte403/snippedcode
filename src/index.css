@@ -53,6 +53,7 @@
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
@@ -64,10 +65,22 @@ body {
   letter-spacing: var(--ls-base);
   transition: background-color 0.3s, color 0.3s;
   min-height: 100vh;
+  /* Prevent text size adjustment after orientation change in mobile browsers */
+  -webkit-text-size-adjust: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
   line-height: var(--lh-tight);
   letter-spacing: var(--ls-tight);
   font-weight: var(--fw-bold);
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 1em; /* Normalizes mono size */
 }

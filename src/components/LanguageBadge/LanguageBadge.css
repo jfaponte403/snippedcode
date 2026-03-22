@@ -1,11 +1,12 @@
 .language-badge {
   font-family: var(--font-ui);
-  font-size: var(--fs-base);
+  font-size: var(--fs-xs);
   color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .language-name {
-  font-weight: var(--fw-semibold);
+  font-weight: var(--fw-bold);
   color: var(--text-primary);
-  text-transform: capitalize;
 }

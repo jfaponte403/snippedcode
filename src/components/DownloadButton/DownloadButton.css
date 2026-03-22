@@ -1,19 +1,17 @@
 .download-button {
   background-color: var(--text-primary);
-  color: var(--surface-color);
+  color: var(--bg-color);
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
   cursor: pointer;
   font-family: var(--font-ui);
-  font-size: var(--fs-base);
-  font-weight: var(--fw-medium);
-  transition: all 0.2s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: opacity 0.2s;
 }
 
 .download-button:hover {
-  background-color: var(--accent-color);
+  opacity: 0.8;
 }

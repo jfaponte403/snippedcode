@@ -6,11 +6,11 @@ describe('ThemeToggle', () => {
   it('renders all available theme options', () => {
     render(<ThemeToggle theme="light" onChangeTheme={() => {}} />);
     const select = screen.getByRole('combobox');
-    expect(select.children.length).toBeGreaterThan(0);
-    // Should have light, dark, dracula
+    expect(select.children.length).toBe(2);
+    // Should have light, dark
     expect(screen.getByText('Light')).toBeInTheDocument();
     expect(screen.getByText('Dark')).toBeInTheDocument();
-    expect(screen.getByText('Dracula')).toBeInTheDocument();
+    expect(screen.queryByText('Dracula')).not.toBeInTheDocument();
   });
 
   it('calls onChangeTheme when a new option is selected', () => {
@@ -18,8 +18,8 @@ describe('ThemeToggle', () => {
     render(<ThemeToggle theme="light" onChangeTheme={handleChange} />);
     
     const select = screen.getByRole('combobox');
-    fireEvent.change(select, { target: { value: 'dracula' } });
+    fireEvent.change(select, { target: { value: 'dark' } });
     
-    expect(handleChange).toHaveBeenCalledWith('dracula');
+    expect(handleChange).toHaveBeenCalledWith('dark');
   });
 });

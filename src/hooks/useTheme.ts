@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export const AVAILABLE_THEMES = ['light', 'dark', 'dracula'];
+export const AVAILABLE_THEMES = ['light', 'dark'];
 
 export function useTheme() {
   const [theme, setTheme] = useState<string>(() => {

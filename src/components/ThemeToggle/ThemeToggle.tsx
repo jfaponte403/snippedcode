@@ -9,7 +9,7 @@ interface ThemeToggleProps {
 export function ThemeToggle({ theme, onChangeTheme }: ThemeToggleProps) {
   return (
     <div className="theme-toggle-wrapper">
-      <span role="img" aria-label="palette">🎨 Theme:</span>
+      <span>Theme:</span>
       <select 
         className="theme-select" 
         value={theme}

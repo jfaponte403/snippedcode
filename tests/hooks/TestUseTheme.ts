@@ -29,11 +29,11 @@ describe('useTheme hook', () => {
     const { result } = renderHook(() => useTheme());
 
     act(() => {
-      result.current.changeTheme('dracula');
+      result.current.changeTheme('dark');
     });
 
-    expect(result.current.theme).toBe('dracula');
-    expect(localStorage.getItem('theme')).toBe('dracula');
-    expect(document.body.className).toBe('theme-dracula');
+    expect(result.current.theme).toBe('dark');
+    expect(localStorage.getItem('theme')).toBe('dark');
+    expect(document.body.className).toBe('theme-dark');
   });
 });
