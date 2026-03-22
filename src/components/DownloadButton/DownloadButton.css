@@ -2,12 +2,13 @@
   background-color: var(--text-primary);
   color: var(--surface-color);
   border: none;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  transition: background-color 0.2s;
+  font-family: var(--font-ui);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  transition: all 0.2s;
   display: flex;
   align-items: center;
   gap: 8px;
