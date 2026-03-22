@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import hljs from 'highlight.js';
 import githubLightUrl from 'highlight.js/styles/github.css?url';
 import githubDarkUrl from 'highlight.js/styles/github-dark.css?url';
+import monokaiUrl from 'highlight.js/styles/monokai.css?url';
 import './CodePreview.css';
 
 interface CodePreviewProps {
@@ -13,6 +14,7 @@ interface CodePreviewProps {
 const HLJS_THEMES: Record<string, string> = {
   light: githubLightUrl,
   dark: githubDarkUrl,
+  monokai: monokaiUrl,
 };
 
 export function CodePreview({ code, theme, language }: CodePreviewProps) {

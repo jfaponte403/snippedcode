@@ -35,5 +35,13 @@ describe('useTheme hook', () => {
     expect(result.current.theme).toBe('dark');
     expect(localStorage.getItem('theme')).toBe('dark');
     expect(document.body.className).toBe('theme-dark');
+
+    act(() => {
+      result.current.changeTheme('monokai');
+    });
+
+    expect(result.current.theme).toBe('monokai');
+    expect(localStorage.getItem('theme')).toBe('monokai');
+    expect(document.body.className).toBe('theme-monokai');
   });
 });

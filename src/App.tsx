@@ -27,6 +27,11 @@ function App() {
     <div className="app-container">
       <header className="app-header">
         <h1>SnippedCode</h1>
+        <div className="header-actions">
+          <LanguageBadge language={detectedLanguage} />
+          <ThemeToggle theme={theme} onChangeTheme={changeTheme} />
+          <DownloadButton elementId="code-preview-capture" />
+        </div>
       </header>
 
       <main className="app-main">
@@ -38,14 +43,6 @@ function App() {
           <CodePreview code={code} theme={theme} language={detectedLanguage} />
         </section>
       </main>
-
-      <footer className="app-footer">
-        <div className="footer-left">
-          <LanguageBadge language={detectedLanguage} />
-          <ThemeToggle theme={theme} onChangeTheme={changeTheme} />
-        </div>
-        <DownloadButton elementId="code-preview-capture" />
-      </footer>
     </div>
   );
 }

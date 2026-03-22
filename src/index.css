@@ -47,6 +47,16 @@
   --accent-color: #BFBFBF;
 }
 
+.theme-monokai {
+  --bg-color: #272822;
+  --surface-color: #3E3D32;
+  --border-color: #49483E;
+  --text-primary: #F8F8F2;
+  --text-secondary: #75715E;
+  --interactive-hover: #49483E;
+  --accent-color: #A6E22E;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
